@@ -29,6 +29,9 @@ POSTGRESQL_PASSWORD - password that will be used to connect to the database
 
 POSTGRESQL_DATABASE - name of the database to connect to.
 
+CMDLINE_PARMS - optional command-line parameters.
+
+
 Normally these would be set by the OpenShift template used to deploy the application.
 
 All database activity occurs on application startup, after which static content is served up on a basic HTTP server.

@@ -10,6 +10,7 @@ var database_host = process.env.DATABASE_SERVICE_NAME;
 var database_user = process.env.POSTGRESQL_USER;
 var database_password = process.env.POSTGRESQL_PASSWORD;
 var database_name = process.env.POSTGRESQL_DATABASE;
+var cmdline_parms = process.env.CMDLINE_PARMS;
 
 // validate the parameters.
 
@@ -51,7 +52,9 @@ if (validation_error == false)
 
 	var serve = serveStatic(dir);
 
-	var command = "java -jar schemaspy-6.0.0-jar-with-dependencies.jar -t pgsql -db "+ database_name + " -s public -host " + database_host + " -port 5432 -u " + database_user + " -p " + database_password + " -o " + dir + " -dp postgresql-9.4-1201.jdbc4.jar";
+	var command = "java -jar schemaspy-6.0.0-jar-with-dependencies.jar -t pgsql -db "+ 
+		database_name + " -s public -host " + database_host + " -port 5432 -u " + database_user + " -p " + database_password + 
+		cmdline_parms +	" -o " + dir + " -dp postgresql-9.4-1201.jdbc4.jar";
 
 	// Generate the HTML.
 	child = exec(command, function (error, stdout, stderr) {
