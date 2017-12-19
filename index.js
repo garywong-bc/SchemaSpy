@@ -40,6 +40,15 @@ if (!database_name)
 	validation_error = true;
 }
 
+if (!cmdline_parms)
+{
+	console.log ("NOTICE - Passing in command line parameters.\n");
+}
+else
+{
+	cmdline_parms = " " + cmdline_parms;	
+}
+
 if (validation_error == false)
 {
 
